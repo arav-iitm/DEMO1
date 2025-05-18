@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from extensions import db  # Import the single shared instance
 from datetime import datetime
 
@@ -24,6 +23,7 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.username}>'
 
+
 class Category(db.Model):
     __tablename__ = 'categories'
     
@@ -35,6 +35,7 @@ class Category(db.Model):
     
     def __repr__(self):
         return f'<Category {self.name}>'
+
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -59,6 +60,7 @@ class Product(db.Model):
     def __repr__(self):
         return f'<Product {self.title}>'
 
+
 class CartItem(db.Model):
     __tablename__ = 'cart_items'
     
@@ -71,6 +73,7 @@ class CartItem(db.Model):
     
     def __repr__(self):
         return f'<CartItem {self.id}>'
+
 
 class Purchase(db.Model):
     __tablename__ = 'purchases'
@@ -85,26 +88,3 @@ class Purchase(db.Model):
     
     def __repr__(self):
         return f'<Purchase {self.id}>'
-=======
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import declarative_base
-
-engine = create_engine("sqlite:///ecofinds.db")
-Base = declarative_base()
-
-class User(Base):
-    __tablename__ = "users"
-    id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
-    email = Column(String, unique=True, nullable=False)
-
-class Product(Base):
-    __tablename__ = "products"
-    id = Column(Integer, primary_key=True)
-    title = Column(String, nullable=False)
-    description = Column(String)
-    price = Column(Integer, nullable=False)
-    category = Column(String)
-
-Base.metadata.create_all(engine)
->>>>>>> ccceb4a0c5231bcecf330629935a41b10a6949ea
